@@ -16,6 +16,7 @@
  */
 package com.github.animeshtrivedi.benchmark;
 
+import org.apache.log4j.BasicConfigurator;
 import org.apache.log4j.Logger;
 import scala.Tuple2;
 
@@ -33,6 +34,7 @@ public class Main {
     public static void main(String[] args) {
         System.out.println("Welcome to Parquet Benchmarking project, version " + version + " , bound checks are enabled(?): " + BOUNDS_CHECKING_ENABLED);
         ParseOptions options = new ParseOptions();
+        BasicConfigurator.configure();
         options.parse(args);
         try {
             // step 1: enumerate all files which are there and take top "parallel" items
