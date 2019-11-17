@@ -9,6 +9,7 @@ import java.nio.channels.WritableByteChannel;
 
 public class Float4Generator extends ArrowDataGenerator {
   int totalFloat4s;
+  private long totalRows;
 
   public Float4Generator(WritableByteChannel channel) {
     super(channel);
@@ -18,6 +19,7 @@ public class Float4Generator extends ArrowDataGenerator {
       e.printStackTrace();
     }
     this.totalFloat4s = 0;
+    this.totalRows = 0;
   }
 
   @Override
@@ -33,7 +35,8 @@ public class Float4Generator extends ArrowDataGenerator {
     }else{
       this.totalFloat4s+=(endIndex - startIndex);
     }
-    //but we say that we have generate space for all integers
+
+    totalRows+=(endIndex - startIndex);
     return (endIndex - startIndex);
   }
 
@@ -73,7 +76,7 @@ public class Float4Generator extends ArrowDataGenerator {
 
   @Override
   public long totalRows() {
-    return 0;
+    return totalRows;
   }
 
   @Override

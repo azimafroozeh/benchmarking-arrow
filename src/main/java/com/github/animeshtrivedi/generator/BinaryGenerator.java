@@ -83,7 +83,7 @@ public class BinaryGenerator extends ArrowDataGenerator {
 
     @Override
     public long totalRows() {
-        return 0;
+        return totalRows;
     }
 
     @Override
