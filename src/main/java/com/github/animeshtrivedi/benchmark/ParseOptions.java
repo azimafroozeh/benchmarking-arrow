@@ -133,6 +133,8 @@ public class ParseOptions {
                     Configuration.type = GeneratorFactory.BIN_GENERATOR;
                 } else if (name.compareToIgnoreCase("long") == 0) {
                     Configuration.type = GeneratorFactory.LONG_GENERATOR;
+                }else if (name.compareToIgnoreCase("float4") == 0){
+                    Configuration.type = GeneratorFactory.FLOAT4_GENERATOR;
                 } else {
                     throw new ParseException("Illegal name for a type " + name);
                 }

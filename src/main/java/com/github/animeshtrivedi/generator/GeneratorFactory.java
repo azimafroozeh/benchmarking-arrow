@@ -24,12 +24,14 @@ public class GeneratorFactory {
     static public final int INT_GENERATOR = 1;
     static public final int LONG_GENERATOR = 2;
     static public final int BIN_GENERATOR = 3;
+    static public final int FLOAT4_GENERATOR = 4;
 
     static public ArrowDataGenerator generator(WritableByteChannel channel) throws Exception {
         switch(Configuration.type){
             case INT_GENERATOR: return new IntegerGenerator(channel);
             case LONG_GENERATOR: return new LongGenerator(channel);
             case BIN_GENERATOR: return new BinaryGenerator(channel);
+            case FLOAT4_GENERATOR: return new Float4Generator(channel);
         }
         throw new Exception(" wrong tpye " + Configuration.type);
     }
